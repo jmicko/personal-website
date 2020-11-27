@@ -1,0 +1,32 @@
+# Appearance
+- [ ] main div
+    - 
+        - [ ] css flexbox
+        - [ ] centered
+        - [ ] shadow
+        - [ ] text-align center
+    - [ ] new todo area 
+        - 
+            - [ ] text-align left
+            - [ ] input field for new to-do
+            - [ ] submit to-do button
+                - [ ] trigger post route to send a todo
+                - [ ] trigger get route to refresh todos
+    - [ ] todo list
+        - 
+            - [ ] text-align left
+            - [ ] get route to get all todos from server on page load
+            - [ ] list all todos
+                ### Each todo should have
+                - [ ] css grid maybe?
+                - [ ] complete button
+                    - [ ] trigger post route to add to db
+                - [ ] delete button 
+                    - [ ] trigger delete route to delete from db
+                - [ ] actual task, p tag is okay
+                - [ ] data portion to store todo ID
+                - [ ] styling
+                    - [ ] color to reflect completion or still need to do
+                    - [ ] slight margin to seperate form others
+                    - [ ] confirm delete
+    
