@@ -1,0 +1,23 @@
+{
+  "name": "personal-website",
+  "version": "1.0.0",
+  "description": "[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmicko/personal-website.git"
+  },
+  "author": "John Micko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmicko/personal-website/issues"
+  },
+  "homepage": "https://github.com/jmicko/personal-website#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

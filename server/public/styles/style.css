@@ -1,0 +1,38 @@
+body{
+    background-color: black;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 15rem 1fr 20rem;
+}
+
+.content{
+    grid-column: 2 / 3;
+    padding: 2rem;
+    align-content: center;
+    background-color: gray;
+    min-height: 120vh;
+    border-radius: .6rem;
+}
+
+h1{
+    text-align: center;
+}
+
+.nav{
+    display: block;
+    grid-column: 1 / 2;
+    position: fixed;
+}
+
+/* .menu-item{
+} */
+
+.menu-link{
+    display: block;
+    margin: .5rem;
+    padding: .2rem;
+    background-color: rgb(0, 194, 48);
+
+}
