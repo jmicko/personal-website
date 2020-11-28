@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="../styles/blog.css">
+    <script src="./vendor/jquery.min.js"></script>
+    <script src="./scripts/client.js"></script>
+</head>
+
+<body>
+    <div class="site">
+        <div class="container">
+            <header class="container">
+                <h1>CODE BRO BLOG YO</h1>
+                    <div class="paypal">
+                        <form action="https://www.paypal.com/donate" method="post" target="_top">
+                            <input type="hidden" name="cmd" value="_donations" />
+                            <input type="hidden" name="business" value="E4CC9F7PS7LXY" />
+                            <input type="hidden" name="item_name" value="Supporting website costs" />
+                            <input type="hidden" name="currency_code" value="USD" />
+                            <input type="hidden" name="amount" value="1" />
+                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0"
+                                name="submit" title="PayPal - The safer, easier way to pay online!"
+                                alt="Donate with PayPal button" />
+                            <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+                        </form>
+                    </div>
+            </header>
+            <main class="container">
+                <h2>New Post</h2>
+                <input id="post-title-in" type="text" placeholder="Title">
+                <input id="post-content-in" type="text" placeholder="Talk about something...">
+                <button id="submit-post">Submit</button>
+                <div id="posts" class="post-history container">
+                    <!-- fill this in with posts -->
+                    <div class="post">
+                        <h2>Example post</h2>
+                        <p>Bacon ipsum dolor amet laboris fugiat turducken short ribs. Non consectetur pork belly sint prosciutto. Pariatur in meatball, aliqua ball tip venison ipsum cupidatat velit pork ex chuck eu. Rump prosciutto shank in non buffalo officia reprehenderit eu andouille adipisicing sausage. Culpa magna pancetta, picanha corned beef ball tip et.</p>
+                        <p>Pork loin boudin tempor, minim magna salami velit pastrami nostrud do mollit porchetta. Shoulder swine excepteur porchetta rump aliqua consequat voluptate venison eu reprehenderit tail ea. Pork belly sed minim pancetta pork chop. Fugiat proident reprehenderit, id tempor ham hock venison.</p>
+                        <p>Bacon cupidatat salami kielbasa. Anim consequat ipsum velit, ut sint cupidatat corned beef sunt beef boudin aliqua magna bacon. Ipsum shank consectetur, sed ut meatball jowl landjaeger ex sirloin ut quis bacon elit. Dolore et ex shoulder frankfurter, pork chop kielbasa pancetta chicken sed pig prosciutto. Dolore cow fatback ut ipsum burgdoggen enim culpa excepteur kielbasa brisket chicken corned beef t-bone consequat. Quis bacon capicola aliquip qui deserunt labore sausage.</p>
+                    </div>
+                    <div class="post">
+                        <h2>Example post</h2>
+                        <p>Bacon ipsum dolor amet laboris fugiat turducken short ribs. Non consectetur pork belly sint prosciutto. Pariatur in meatball, aliqua ball tip venison ipsum cupidatat velit pork ex chuck eu. Rump prosciutto shank in non buffalo officia reprehenderit eu andouille adipisicing sausage. Culpa magna pancetta, picanha corned beef ball tip et.</p>
+                        <p>Pork loin boudin tempor, minim magna salami velit pastrami nostrud do mollit porchetta. Shoulder swine excepteur porchetta rump aliqua consequat voluptate venison eu reprehenderit tail ea. Pork belly sed minim pancetta pork chop. Fugiat proident reprehenderit, id tempor ham hock venison.</p>
+                        <p>Bacon cupidatat salami kielbasa. Anim consequat ipsum velit, ut sint cupidatat corned beef sunt beef boudin aliqua magna bacon. Ipsum shank consectetur, sed ut meatball jowl landjaeger ex sirloin ut quis bacon elit. Dolore et ex shoulder frankfurter, pork chop kielbasa pancetta chicken sed pig prosciutto. Dolore cow fatback ut ipsum burgdoggen enim culpa excepteur kielbasa brisket chicken corned beef t-bone consequat. Quis bacon capicola aliquip qui deserunt labore sausage.</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
