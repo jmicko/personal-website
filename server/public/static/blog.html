@@ -8,7 +8,13 @@
     <link rel="stylesheet" href="../styles/blog.css">
     <script src="../vendors/jquery-3.5.1.min.js"></script>
     <script src="../scripts/blog.js"></script>
+    <!-- js code for tinycloud tex input. Keep this for after jQuery is removed -->
+    <script src="https://cdn.tiny.cloud/1/zryrlvrtvxzkyd2k76bn97u8ugg6pvpm9d1gaqhkf8rsg2x6/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
+    <!-- These next two are for getting tinycloud working with jQuery. They can be removed when jQuery is removed -->
     <script src="https://cdn.tiny.cloud/1/zryrlvrtvxzkyd2k76bn97u8ugg6pvpm9d1gaqhkf8rsg2x6/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/zryrlvrtvxzkyd2k76bn97u8ugg6pvpm9d1gaqhkf8rsg2x6/tinymce/5/jquery.tinymce.min.js" referrerpolicy="origin"></script>
+
 </head>
 
 <body>
@@ -19,24 +25,12 @@
             </header>
             <main class="container">
                 <h2>New Post</h2>
-                <input id="post-title-in" type="text" placeholder="Title">
-                <input id="post-content-in" type="text" placeholder="Talk about something...">
-                <!-- <textarea name="blog-entry" id="new-post" cols="30" rows="10">Say something cool.</textarea> -->
+                <input id="post-title-in" type="text" placeholder="Title" value="Blog Post #Infinity">
+                <!-- the textarea will be consumed by the tiny cloud text editor -->
+                <textarea name="blog-entry" id="post-content-in"></textarea>
                 <button id="submit-post">Submit</button>
                 <div id="posts" class="post-history container">
                     <!-- fill this in with posts -->
-                    <div class="post">
-                        <h2>Example post</h2>
-                        <p>Bacon ipsum dolor amet laboris fugiat turducken short ribs. Non consectetur pork belly sint prosciutto. Pariatur in meatball, aliqua ball tip venison ipsum cupidatat velit pork ex chuck eu. Rump prosciutto shank in non buffalo officia reprehenderit eu andouille adipisicing sausage. Culpa magna pancetta, picanha corned beef ball tip et.</p>
-                        <p>Pork loin boudin tempor, minim magna salami velit pastrami nostrud do mollit porchetta. Shoulder swine excepteur porchetta rump aliqua consequat voluptate venison eu reprehenderit tail ea. Pork belly sed minim pancetta pork chop. Fugiat proident reprehenderit, id tempor ham hock venison.</p>
-                        <p>Bacon cupidatat salami kielbasa. Anim consequat ipsum velit, ut sint cupidatat corned beef sunt beef boudin aliqua magna bacon. Ipsum shank consectetur, sed ut meatball jowl landjaeger ex sirloin ut quis bacon elit. Dolore et ex shoulder frankfurter, pork chop kielbasa pancetta chicken sed pig prosciutto. Dolore cow fatback ut ipsum burgdoggen enim culpa excepteur kielbasa brisket chicken corned beef t-bone consequat. Quis bacon capicola aliquip qui deserunt labore sausage.</p>
-                    </div>
-                    <div class="post">
-                        <h2>Example post</h2>
-                        <p>Bacon ipsum dolor amet laboris fugiat turducken short ribs. Non consectetur pork belly sint prosciutto. Pariatur in meatball, aliqua ball tip venison ipsum cupidatat velit pork ex chuck eu. Rump prosciutto shank in non buffalo officia reprehenderit eu andouille adipisicing sausage. Culpa magna pancetta, picanha corned beef ball tip et.</p>
-                        <p>Pork loin boudin tempor, minim magna salami velit pastrami nostrud do mollit porchetta. Shoulder swine excepteur porchetta rump aliqua consequat voluptate venison eu reprehenderit tail ea. Pork belly sed minim pancetta pork chop. Fugiat proident reprehenderit, id tempor ham hock venison.</p>
-                        <p>Bacon cupidatat salami kielbasa. Anim consequat ipsum velit, ut sint cupidatat corned beef sunt beef boudin aliqua magna bacon. Ipsum shank consectetur, sed ut meatball jowl landjaeger ex sirloin ut quis bacon elit. Dolore et ex shoulder frankfurter, pork chop kielbasa pancetta chicken sed pig prosciutto. Dolore cow fatback ut ipsum burgdoggen enim culpa excepteur kielbasa brisket chicken corned beef t-bone consequat. Quis bacon capicola aliquip qui deserunt labore sausage.</p>
-                    </div>
                 </div>
             </main>
         </div>

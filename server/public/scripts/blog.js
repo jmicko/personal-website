@@ -6,11 +6,21 @@ $(window).on("load", function () {
 
 function onLoad() {
     // initiate blog post content section
-    tinymce.init({
-        selector: '#new-post'
-      });
+
+    // keep the next three lines for after jQuery is removed
+    // tinymce.init({
+    //     selector: '#post-content-in'
+    //   });
+
+
+    // this is only for jQuery. Remove it when I remove jQuery
+    $('textarea#post-content-in').tinymce({    });
+
+
     console.log('ready');
+    // load all blogs onto the page
     getBlogs()
+    // listener for submit post button
     $('#submit-post').on('click', postNewBlog)
 }
 
@@ -19,7 +29,8 @@ function postNewBlog() {
     let blogPost = {}
     // Grab new blog post from inputs
     blogPost.title = $("#post-title-in").val();
-    blogPost.content = $("#post-content-in").val();
+    blogPost.content = $("textarea#post-content-in").val();
+    // package up the object and send it to the POST route
     sendBlog(blogPost);
 }
 
