@@ -7,7 +7,7 @@ let blogs = ['blogs'];
 
 //  send information fromm the server into the client
 router.get('/', (req, res) => {
-    console.log('Getting blogs');
+    console.log('Getting blog posts');
     // do some blog getting here
     let queryText = 'SELECT * FROM blog ORDER BY published DESC;';
     pool.query(queryText)
@@ -22,9 +22,18 @@ router.get('/', (req, res) => {
 
 //  send information fromm the client into the server
 router.post('/', (req, res) => {
-    console.log('Got blogs', req.body);
+    let post = req.body;
+    console.log('Inserting blog post', post);
     // do some blog db inserting here
-    res.sendStatus(201); // Created
+    let queryText = `INSERT INTO "blog" ("title", "content") 
+                     VALUES ($1, $2);`;
+    pool.query(queryText, [post.title, post.content])
+        .then(result => { // once database receives data correctly, we receive the updated status
+            res.sendStatus(201);
+        }).catch(error => {
+            console.log(`Error adding new task`, error);
+            res.sendStatus(500);
+        });
 })
 
 

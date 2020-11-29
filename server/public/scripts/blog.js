@@ -5,6 +5,10 @@ $(window).on("load", function () {
 })
 
 function onLoad() {
+    // initiate blog post content section
+    tinymce.init({
+        selector: '#new-post'
+      });
     console.log('ready');
     getBlogs()
     $('#submit-post').on('click', postNewBlog)
@@ -53,8 +57,8 @@ function renderPosts(array) {
     for (const post of array) {
         let $div = $(`<div class="post"></div>`);
         $div.data('post', post);
-            $div.append(`<h2>${post.title}</h2>`);
-            $div.append(`<p>${post.content}</p>`)
+        $div.append(`<h2>${post.title}</h2>`);
+        $div.append(`<p>${post.content}</p>`)
         $('#posts').append($div);
     }
 }
