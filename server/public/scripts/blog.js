@@ -14,7 +14,7 @@ function onLoad() {
 
 
     // this is only for jQuery. Remove it when I remove jQuery
-    $('textarea#post-content-in').tinymce({    });
+    $('textarea#post-content-in').tinymce({});
 
 
     console.log('ready');
@@ -22,6 +22,7 @@ function onLoad() {
     getBlogs()
     // listener for submit post button
     $('#submit-post').on('click', postNewBlog)
+    $('#posts').on('click', '.btn-delete', deleteBlog)
 }
 
 function postNewBlog() {
@@ -70,6 +71,29 @@ function renderPosts(array) {
         $div.data('post', post);
         $div.append(`<h2>${post.title}</h2>`);
         $div.append(`<p>${post.content}</p>`)
+        $div.append(`<button class='btn-delete'>Delete Post</button>`)
         $('#posts').append($div);
     }
+}
+
+// function to delete post when delete button clicked on
+function deleteBlog() {
+    console.log('Deleting post....');
+    // create variable to store closest div
+    let post = $(this).closest('div').data('post');
+    // console logging selected post id
+    console.log('post id to delete is:', post.id);
+    // remove div we just selected
+    $(this).closest('div').remove('');
+    // this ajax call deletes the data we pass in to delete on ${task.id}
+    $.ajax({
+        method: 'DELETE',
+        url: `/blogs/${post.id}`
+    }).then(function (response) {
+        // refresh the posts on the page
+        getBlogs();
+    }).catch(function (error) {
+        console.log('Error', error);
+        alert('Try again.');
+    })
 }

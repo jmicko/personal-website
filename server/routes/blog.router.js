@@ -36,5 +36,21 @@ router.post('/', (req, res) => {
         });
 })
 
+// DELETE Route
+router.delete('/:id', (req, res) => {
+    let id = req.params.id;
+    // set up the sql text with sanitization
+    let sqlText = `DELETE FROM blog WHERE id=$1;`;
+    // execute the command filling in the value with id
+    pool.query(sqlText, [id])
+        .then((result) => {
+            res.sendStatus(200);
+        }).catch((error) => {
+            console.log('Error from db:', error);
+            res.sendStatus(500);
+        })
+})
+
+
 
 module.exports = router;
