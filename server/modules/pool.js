@@ -1,12 +1,14 @@
 const pg = require('pg');
 
+let config = {};
+
 if(process.env.DATABASE_URL){
     config = {
         connectionString: process.env.DATABASE_URL,
         ssl: {rejectUnauthorized: false}
     }
 } else {
-    const config = {
+    config = {
         database: 'portfolio',
         host: 'localhost',
         port: 5432,

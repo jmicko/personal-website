@@ -1,17 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const PORT = 5000;
-const songRouter = require('./routes/blog.router');
+const PORT = process.env.PORT || 5000;
+const blogRouter = require('./routes/blog.router');
+
+// serve static files
+app.use(express.static('server/public'));
 
 // Required for our POST requests to work
 app.use(bodyParser.urlencoded({extended: true}));
 
 // direct blog route
-app.use('/blog', blogRouter);
+app.use('/blogs', blogRouter);
 
-// serve static files
-app.use(express.static('server/public'));
 
 app.listen(PORT, () => {
     console.log('listening on port', PORT)

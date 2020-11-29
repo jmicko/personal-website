@@ -4,16 +4,10 @@ $(window).on("load", function () {
     onLoad();
 })
 
-function onLoad(params) {
+function onLoad() {
     console.log('ready');
-}
-
-
-function onload() {
-    $('#submit-post').on('click', function () {
-        console.log('jq');
-        postNewBlog()
-    })
+    getBlogs()
+    $('#submit-post').on('click', postNewBlog)
 }
 
 function postNewBlog() {
@@ -40,11 +34,13 @@ function getBlogs() {
     $.ajax({
         method: 'GET',
         url: '/blogs'
-    })
-        .then(function (response) {
-            console.log('Got messages', response);
-            renderMessages(response);
-        })
+    }).then(function (response) {
+        console.log('Got messages', response);
+        renderPosts(response);
+    }).catch(function (error) {
+        console.log('Error in POST', error)
+        alert('Unable to load blogs at this time. Please try again later.');
+    });
 }
 
 function renderPosts(array) {
