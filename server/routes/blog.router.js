@@ -9,7 +9,15 @@ let blogs = ['blogs'];
 router.get('/', (req, res) => {
     console.log('Getting blogs');
     // do some blog getting here
-    res.send(blogs);
+    let queryText = 'SELECT * FROM blog ORDER BY published DESC;';
+    pool.query(queryText)
+        .then(result => {
+            // send back the results in an object
+            res.send(result.rows);
+        }).catch(error => {
+            console.log('error getting blogs', error);
+            res.sendStatus(500);
+        });
 })
 
 //  send information fromm the client into the server
