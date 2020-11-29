@@ -11,11 +11,15 @@ function onLoad() {
 }
 
 function postNewBlog() {
+    // store new post as object
+    let blogPost = {}
     // Grab new blog post from inputs
-    // store post as object
+    blogPost.title = $("#post-title-in").val();
+    blogPost.content = $("#post-content-in").val();
+    sendBlog(blogPost);
 }
 
-function sendBlogs(blogPost) {
+function sendBlog(blogPost) {
     console.log('send to server');
     $.ajax({
         method: 'POST',
@@ -24,9 +28,9 @@ function sendBlogs(blogPost) {
     }).then(function (response) {
         console.log('back from server');
         // clear inputs
-        $('#in-name').val('');
-        $('#in-msg').val('');
-        getPosts();
+        blogPost.title = $("#post-title-in").val('');
+        blogPost.content = $("#post-content-in").val('');
+        getBlogs();
     })
 }
 
@@ -35,7 +39,7 @@ function getBlogs() {
         method: 'GET',
         url: '/blogs'
     }).then(function (response) {
-        console.log('Got messages', response);
+        console.log('Got blogs', response);
         renderPosts(response);
     }).catch(function (error) {
         console.log('Error in POST', error)
@@ -44,8 +48,13 @@ function getBlogs() {
 }
 
 function renderPosts(array) {
-    $('#post-history').empty();
-    for (const item of array) {
-        $('#post-history').append(`<p>${item.name}: ${item.text}</p>`)
+    console.log('in renderPosts');
+    $('#posts').empty();
+    for (const post of array) {
+        let $div = $(`<div class="post"></div>`);
+        $div.data('post', post);
+            $div.append(`<h2>${post.title}</h2>`);
+            $div.append(`<p>${post.content}</p>`)
+        $('#posts').append($div);
     }
 }
