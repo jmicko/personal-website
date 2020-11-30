@@ -1,3 +1,4 @@
+
 $(window).on("load", function () {
     console.log('js, jq');
     // Anything that should come in on page load goes here
@@ -23,9 +24,11 @@ function onLoad() {
     // listener for submit post button
     $('#submit-post').on('click', postNewBlog)
     $('#posts').on('click', '.btn-delete', deleteBlog)
+    // $('#login').on('click', logIn)
 }
 
 function postNewBlog() {
+    
     // store new post as object
     let blogPost = {}
     // Grab new blog post from inputs
@@ -47,8 +50,23 @@ function sendBlog(blogPost) {
         blogPost.title = $("#post-title-in").val('');
         blogPost.content = $("#post-content-in").val('');
         getBlogs();
+        // getUser();
     })
 }
+
+// function getUser() {
+//     $.ajax({
+//         method: 'GET',
+//         url: '/user'
+//     }).then(function (response) {
+//         console.log('Got user', response.user);
+//         // renderPosts(response);
+//         console.log(response);
+//     }).catch(function (error) {
+//         console.log('Error in POST', error)
+//         alert('Unable to load blogs at this time. Please try again later.');
+//     });
+// }
 
 function getBlogs() {
     $.ajax({
@@ -57,6 +75,7 @@ function getBlogs() {
     }).then(function (response) {
         console.log('Got blogs', response);
         renderPosts(response);
+        // console.log(user.username);
     }).catch(function (error) {
         console.log('Error in POST', error)
         alert('Unable to load blogs at this time. Please try again later.');

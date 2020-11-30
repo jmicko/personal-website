@@ -1,12 +1,31 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
+const passport = require('passport');
+const connectEnsureLogin = require('connect-ensure-login');
 
-let blogs = ['blogs'];
 
+// let blogs = ['blogs'];
+
+
+// router.post('/login',
+//   passport.authenticate('github'),
+//   function(req, res) {
+//     // If this function gets called, authentication was successful.
+//     // `req.user` contains the authenticated user.
+//         console.log(req.user.username);
+//     res.redirect('/' + req.user.username);
+//   });
 
 //  send information fromm the server into the client
 router.get('/', (req, res) => {
+    // passport.authenticate('github'),
+    // function(req, res) {
+    //     // If this function gets called, authentication was successful.
+    //     // `req.user` contains the authenticated user.
+    //     // res.redirect('/users/' + req.user.username);
+    //     console.log(req.user.username);
+    //   }
     console.log('Getting blog posts');
     // do some blog getting here
     let queryText = 'SELECT * FROM blog ORDER BY published DESC;';
@@ -21,7 +40,9 @@ router.get('/', (req, res) => {
 })
 
 //  send information fromm the client into the server
-router.post('/', (req, res) => {
+router.post('/',
+connectEnsureLogin.ensureLoggedIn(),
+ (req, res) => {
     let post = req.body;
     console.log('Inserting blog post', post);
     // do some blog db inserting here
