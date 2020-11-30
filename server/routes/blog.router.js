@@ -41,7 +41,7 @@ router.get('/', (req, res) => {
 
 //  send information fromm the client into the server
 router.post('/',
-connectEnsureLogin.ensureLoggedIn(),
+// connectEnsureLogin.ensureLoggedIn(),
  (req, res) => {
     let post = req.body;
     console.log('Inserting blog post', post);
